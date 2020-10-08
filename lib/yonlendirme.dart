@@ -34,7 +34,7 @@ class _YonlendirState extends State<Yonlendir> {
 
  if (snapshot.connectionState == ConnectionState.done) {
  Map<String, dynamic> data = snapshot.data.data();
- launch(data['link']);
+ gonder(data);
 
  return Center(
    child: Column(
@@ -63,8 +63,14 @@ class _YonlendirState extends State<Yonlendir> {
   }
 
   void calistir() {
-  Future.delayed(Duration(seconds: 3),(){
+
+    Future.delayed(Duration(seconds: 3),(){
     Navigator.pop(context);
   });
+  }
+
+  void gonder([Map<String,dynamic> data]) {
+    launch(data['link'],universalLinksOnly: true);
+
   }
 }
