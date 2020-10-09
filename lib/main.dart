@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     Firebase.initializeApp();
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: "/",
 
       onGenerateRoute: (RouteSettings settings) {
@@ -30,12 +31,12 @@ class MyApp extends StatelessWidget {
 
   Widget _buildForRouteDescription(RouteDescription description) {
     // First try to find the page name in query params.
-    switch (description.queryParams['a']) {
+    switch (description.queryParams['s']) {
 
     case '/':
       debugPrint(description.path);
 
-      return Yonlendir(description.queryParams['a']);
+      return Yonlendir(description.path);
 
       case '/home':
         return HomeScreen();
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
       default:
         debugPrint(description.path);
 
-        return Yonlendir(description.queryParams['a']);
+        return Yonlendir(description.path);
 
     }
 
@@ -68,7 +69,7 @@ class RouteDescription {
   const RouteDescription._(this.path, this.queryParams);
 
   factory RouteDescription.fromRawString(String raw) {
-    final int queryStringIndex = raw.indexOf('?');
+    final int queryStringIndex = raw.indexOf('a');
     String path;
     Map<String, String> queryParams;
     if (queryStringIndex == -1) {
