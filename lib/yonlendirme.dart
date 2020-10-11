@@ -23,8 +23,6 @@ class _YonlendirState extends State<Yonlendir> {
 @override
   void initState() {
 
-  debugPrint(budur.toString()+"2666666666asdsa6d");
-  debugPrint(widget.queryParam +  "55555555");
 
 
   calistir();
@@ -55,7 +53,7 @@ class _YonlendirState extends State<Yonlendir> {
 
  }
 
- return Text("loading");
+ return Text("Yükleniyor");
  },
  )
 
@@ -76,7 +74,7 @@ class _YonlendirState extends State<Yonlendir> {
 
   void calistir() {
 
-    Future.delayed(Duration(seconds: 5000),(){
+    Future.delayed(Duration(seconds: 1),(){
       debugPrint(widget.queryParam +  "55555555");
 
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){

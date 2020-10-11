@@ -4,12 +4,11 @@ import 'dart:convert';
 
 
 class PurschaseApiClient {
-  static const baseUrl = "https://raw.githubusercontent.com/klaycarda/klaycarda/master/url%20(2).json";
+  static const baseUrl = "http://file.akalayci.com/s/bE4KSrqETRxXaqF/download";
   final http.Client httpClient = http.Client();
 
 
   Future<Purch> getPurschase() async {
-    print("----------api çağrıldı");
     final radyoCevap = await httpClient.get(baseUrl,headers: {
 
     });
@@ -17,7 +16,6 @@ class PurschaseApiClient {
 
     final radyoCevapJSON =
         jsonDecode(radyoCevap.body);
-    print(radyoCevap.body.toString()+"**********");
     return Purch.fromJson(radyoCevapJSON);
   }
 }

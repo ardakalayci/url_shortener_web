@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     Firebase.initializeApp();
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: true,
       initialRoute: "/",
 
       onGenerateRoute: (RouteSettings settings) {
@@ -69,7 +69,7 @@ class RouteDescription {
   const RouteDescription._(this.path, this.queryParams);
 
   factory RouteDescription.fromRawString(String raw) {
-    final int queryStringIndex = raw.indexOf('a');
+    final int queryStringIndex = raw.indexOf(' ');
     String path;
     Map<String, String> queryParams;
     if (queryStringIndex == -1) {
